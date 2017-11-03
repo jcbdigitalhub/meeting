@@ -1,0 +1,7 @@
+{
+	"js/meeting.min.js": [
+		"public/js/jquery.dataTables.min.js",
+		"public/js/jquery.dataTables.min.css"
+	]
+}
+

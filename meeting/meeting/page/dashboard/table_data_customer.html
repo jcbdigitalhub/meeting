@@ -1,0 +1,40 @@
+<p class="text-center"><label>Customer Details</label></p>
+
+<!-- <p class="text-right">
+<button class="btn btn-default btn-xs input-sm btn-sm" data-fieldtype="Button" data-fieldname="add_doctor" placeholder="Add Customer" value="" style="width: 100%; margin-top: -1px;"><i class="icon-upload fa-fw"></i> Add Customer</button>
+</p> -->
+
+
+<table id="customerTable" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th class="text-right">Customer</th>
+            <th class="text-center">Customer Type</th>
+            <th class="text-center">Customer Group</th>
+            <th class="text-right">Territory</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for i in datacust %}
+        <tr>
+            <td class="text-right"> 
+                <a href="desk#Form/Customer Group/{{ i.name }}" target="_blank">{{ i.customer_name }}
+                </a>
+            </td>
+            <td> 
+                <a href="desk#Form/Customer Group/{{ i.name }}">{{ i.customer_type }}
+                </a>
+            </td>
+            <td> {{ i.customer_group }} </td>
+            <td class="text-right"> {{ i.territory }} </td>
+        </tr>
+      {% endfor %}
+
+    <tfoot>
+            <th class="text-right">Customer</th>
+            <th class="text-center">Customer Type</th>
+            <th class="text-center">Customer Group</th>
+            <th class="text-right">Territory</th>
+    </tfoot>
+    </tbody>
+</table>            

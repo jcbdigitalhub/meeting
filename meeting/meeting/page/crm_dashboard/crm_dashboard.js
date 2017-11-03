@@ -26,8 +26,8 @@ meeting.CrmDashboard = Class.extend({
 		// $.extend(this, opts);
 		this.make_graph(wrapper, page);
 		this.create_customer(wrapper);
-		// this.make_party();
-		// this.prepare_data();
+		this.make_party();
+		this.prepare_data();
         page.set_title(__("Dashboard") + " - " + __("CRM"));
 
 
@@ -43,7 +43,7 @@ meeting.CrmDashboard = Class.extend({
 		let current_val = 20130;
 
 		setTimeout(function(){ 
-			let g = new frappe.ui.Graph({
+ 			let g = new Chart({
 				parent: $('.mygraph').empty(),
 				height: 200,					// optional
 				mode: 'line',					// 'line', 'bar' or 'percentage'
@@ -102,7 +102,7 @@ meeting.CrmDashboard = Class.extend({
 		},500);
 
      },
-     create_customer: function(wrapper){
+/*     create_customer: function(wrapper){
      	var d = new frappe.ui.Dialog({
 			title: __("Add Customer"),
 			fields: [
@@ -225,5 +225,5 @@ meeting.CrmDashboard = Class.extend({
 	      // me.get_data(this);
 	      d.show();
 	    });
-     }
+     }*/
 });

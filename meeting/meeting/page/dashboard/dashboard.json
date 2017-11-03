@@ -1,0 +1,19 @@
+{
+ "content": null, 
+ "creation": "2017-11-02 11:19:55.609672", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "idx": 0, 
+ "modified": "2017-11-02 11:19:55.609672", 
+ "modified_by": "Administrator", 
+ "module": "Meeting", 
+ "name": "dashboard", 
+ "owner": "Administrator", 
+ "page_name": "Dashboard", 
+ "roles": [], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "system_page": 0, 
+ "title": "Dashboard"
+}
