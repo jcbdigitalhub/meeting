@@ -1,4 +1,5 @@
 import frappe
+import json
 from frappe import _
 from frappe.utils import nowdate, add_days
 
@@ -27,21 +28,27 @@ def send_invitation_emails(meeting):
 		frappe.msgprint(_("Meeting Status must be 'Planned'"))
 
 @frappe.whitelist()
-def get_meetings(start, end):
+def get_meetings(start, end, filters=None):
 	if not frappe.has_permission("Meeting", "read"):
 		raise frappe.PermissionError
 
+	filters = json.loads(filters)
+	from frappe.desk.calendar import get_event_conditions
+	conditions = get_event_conditions("Meeting", filters)
+
 	return frappe.db.sql("""select
-		timestamp(`date`, from_time) as start,
-		timestamp(`date`, to_time) as end,
+		start,
+		end,
 		name,
 		title,
 		status,
-		0 as all_day
-	from `tabMeeting`
-	where `date` between %(start)s and %(end)s""", {
+		all_day,
+		meeting_location,
+		(SELECT color FROM `tabMeeting Location` WHERE name = meeting_location) color
+	from `tabMeeting` 
+	where start >= %(start)s and end <= %(end)s {conditions}""".format(conditions=conditions), {
 		"start": start,
-		"end": end
+		"end": end,
 	}, as_dict=True)
 
 def make_orientation_meeting(doc, method):

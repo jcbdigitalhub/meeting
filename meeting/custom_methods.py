@@ -8,5 +8,5 @@ import datetime
 
 @frappe.whitelist()
 def meeting_status(doc, method):
-	frappe.msgprint("hi from hooks")
-	frappe.msgprint("meeting status is", doc.status)
+	frappe.msgprint("Meeting Updated")
+	frappe.msgprint("Meeting status is ", doc.status)
